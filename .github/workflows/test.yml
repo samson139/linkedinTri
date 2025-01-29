@@ -1,0 +1,21 @@
+name: testing_python
+on: [ push ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out
+        uses: actions/checkout@v4
+      - name: run python script
+        run: python hello.py
+      
+  artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact
+          path: ./
+    
+
