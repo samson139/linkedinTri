@@ -10,12 +10,15 @@ jobs:
         run: python hello.py
       
   artifact:
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
+      - name: checking out
+        uses: actions/checkout@v4
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: artifact
-          path: ./artifacts
+          path: .
     
 
